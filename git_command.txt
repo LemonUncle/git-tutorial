@@ -1,0 +1,36 @@
+touch README.md									// 创建README.md文件作为管理对象
+'-'				 								// 上一个分支名
+ssh-keygen -t rsa -C "your_email@example.com"	// 设置SSH Key
+ssh -T git@github.com							// ssh连接
+
+git 命令：
+	git init						// 初始化仓库
+	git status						// 查看当前状态
+	git add	文件名					// 加入暂存区 （提交：暂存区 ——> 仓库历史记录）
+	git commit						// 存档（会弹出窗口，输入提交信息,
+		第一行简述提交内容，第二行空行，第三行以后记述更改的原因和详细内容。
+		若直接留空，并关闭文本编辑器，则视为中止提交。）
+	git commit -m "一行的提交信息"	
+	git log							// 查看提交日志（只能查看以当前状态为终点的历史日志）
+	git log --pretty=short			// 只显示第一行简述信息
+	git log 文件或文件名			// 只显示该文件下或该文件的日志
+	git log -p						// 显示文件前后差别
+	git diff						// 查看更改前后的差别
+	git diff HEAD					// 和最近一次提交做比较
+	git branch						// 显示分支
+	git branch 分支名				// 创建新分支
+	git checkout 分支名				// 切换到该分支
+	git checkout -b	分支名			// 创建分支并切换到新分支
+	git merge --no-ff 分支名		// 合并分支到现在所处的分支里
+	git log --graph					// 以图表形式查看分支
+	git reset						// 回溯历史版本（读取存档）
+	git reset --hard 哈希值
+	git reflog 						// 查看该仓库所有的执行日志
+	git commit --amend 				// 修改提交信息
+	git rebase -i					// 压缩历史（覆盖存档：先创建一个存档再覆盖）
+	
+	git remote add origin git@github.com:用户名/仓库名.git		// 添加远程仓库（设置该远程仓
+		库为本地仓库的远程仓库, 并标记本地仓库名为origin）
+	git push -u origin master 									// 推送至远程仓库（-u参数推送的同时，将origin仓库的master设为上游）
+	git clone git@github.com:用户名/仓库名.git					// 获取远程仓库
+	git pull origin 分支名		// 获取最新的远程仓库分支
